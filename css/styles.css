@@ -1,0 +1,11 @@
+table {
+  border: 2px;
+  border-style: solid;
+  empty-cells: show;
+}
+
+td {
+  border: 1px;
+  border-style: dotted;
+
+}
