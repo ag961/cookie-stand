@@ -1,11 +1,109 @@
-table {
+table * {
+  background-color: honeydew;
   border: 2px;
   border-style: solid;
   empty-cells: show;
+  font-size: 1.05em;
+  border: 3px solid black;
+  padding: 2px;
+  width: auto;
+}
+
+thead {
+  font-weight: bold;
+}
+
+th {
+  font-size: 1.2em;
+  font-weight: bolder;
 }
 
 td {
-  border: 1px;
-  border-style: dotted;
-
+  text-align: center;
+  padding: 10px;
 }
+
+tfoot {
+  color: blue;
+  font-weight: bolder;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(216, 194, 174);
+  color: black;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;} 
+
+header img {
+  display: flex;
+  width: 20%;
+}
+  
+h1 {
+ color: #880707;
+ opacity: 0.85;  
+ padding: 0.5;
+ text-align: center;}
+b { color: red;}
+nav {
+ background-color: rgb(197, 179, 179);
+ padding: 0.1em;
+ margin-bottom: 0.9em;
+ border-top: 2px solid #000;
+ border-bottom: 2px solid #000;}
+article {
+ background-color:rgb(228, 193, 142); 
+ padding: 0.5em;
+ border: 1px solid #880707}
+div {margin: 10px;}
+ul {
+ text-align: center;
+ margin: 10px auto 5px auto;}
+li {
+ display: inline;
+ padding: 1em;
+ margin: auto;}
+
+article ul {
+  display: flex;
+  text-align: center;
+  margin: 10px auto 5px auto;}
+
+article li {
+  padding: 1em;
+  margin: auto;}
+a {
+ padding:  18px;
+ color: black;
+ text-decoration: none;}
+a:visited {
+ text-decoration: none;}
+img.main {
+ width: 600px;
+ height: 600px;
+ display: block;
+ margin: auto;}
+figure {
+ width: 620px;
+ height: 310px;
+ background-color: rgb(172, 147, 119);}
+figure img {
+ border: 1px solid;}
+
+#candle {
+ width: 30px;
+ height: 80px;}
+#candle2 {
+ margin: auto;
+}
+h3 {
+ text-transform: uppercase;
+ color: blue;
+ text-align: center;}
+h2 {
+ text-transform: capitalize;
+ color: navy;
+ text-align: center;}
