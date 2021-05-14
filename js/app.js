@@ -1,31 +1,6 @@
 'use strict';
 
-let hours = ['6am', '7am','8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Daily Total'];
-
-function CookieStand (city, minCust, maxCust, avgCookiePerCust) {
-
-  this.city = city;
-  this.minCust = minCust;
-  this.maxCust = maxCust;
-  this.avgCookiePerCust = avgCookiePerCust;
-  this.cookiePerHour = [];
-}
-
-CookieStand.prototype.setCookiePerHour = function() {
-  this.cookiePerHour.push(Math.ceil(randomCustomers(this.minCust,this.maxCust) * this.avgCookiePerCust));
-};
-
-let seattle = new CookieStand ('Seattle', 23, 65, 6.3);
-let tokyo = new CookieStand ('Tokyo', 3, 24, 1.2);
-let dubai = new CookieStand ('Dubai', 11, 38, 3.7);
-let paris = new CookieStand ('Paris', 20, 38, 2.3);
-let lima = new CookieStand ('Lima', 2, 16, 4.6);
-
-let locations = [seattle, tokyo, dubai, paris, lima];
-
-function randomCustomers(minCust,maxCust){
-  return Math.floor(Math.random()*(maxCust- minCust + 1) + minCust);
-}
+const hours = ['6am', '7am','8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Daily Total'];
 
 const divElem = document.getElementById('location');
 
@@ -33,14 +8,26 @@ const tableElem = document.createElement('table');
 tableElem.setAttribute('id', 'table1');
 divElem.appendChild(tableElem);
 
-const theadElem = document.createElement('thead');
-tableElem.appendChild(theadElem);
-const tbodyElem = document.createElement('tbody');
-tableElem.appendChild(tbodyElem);
-const tfootElem = document.createElement('tfoot');
-tableElem.appendChild(tfootElem);
+function CookieStand (city, minCust, maxCust, avgCookiePerCust) {
+
+  this.city = city;
+  this.minCust = parseFloat(minCust);
+  this.maxCust = parseFloat(maxCust);
+  this.avgCookiePerCust = parseFloat(avgCookiePerCust);
+  this.cookiePerHour = [];
+}
+
+CookieStand.prototype.setCookiePerHour = function() {
+  this.cookiePerHour.push(Math.ceil(randomCustomers(this.minCust,this.maxCust) * this.avgCookiePerCust));
+};
+
+function randomCustomers(minCust,maxCust){
+  return Math.floor(Math.random()*(maxCust- minCust + 1) + minCust);
+}
 
 function createTopRow () {
+  const theadElem = document.createElement('thead');
+  tableElem.appendChild(theadElem);
 
   let trElemHoursRow = document.createElement('tr');
   theadElem.appendChild(trElemHoursRow);
@@ -58,6 +45,8 @@ function createTopRow () {
 }
 
 function addToTable (store){
+  const tbodyElem = document.createElement('tbody');
+  tableElem.appendChild(tbodyElem);
 
   const trElem = document.createElement('tr');
   tbodyElem.appendChild(trElem);
@@ -83,6 +72,10 @@ function addToTable (store){
 }
 
 function createFooter(){
+
+  const tfootElem = document.createElement('tfoot');
+  tableElem.appendChild(tfootElem);
+
   let tfELemFooterRow = document.createElement('tr');
   tfootElem.appendChild(tfELemFooterRow);
 
@@ -112,7 +105,7 @@ function createFooter(){
   for (let i =0; i < totalsArray.length; i++){
 
     totalsSum += totalsArray[i];
-    console.log(totalsSum);
+
   }
 
   let tdFinalTotal = document.createElement('td');
@@ -120,10 +113,45 @@ function createFooter(){
   tfELemFooterRow.appendChild(tdFinalTotal);
 }
 
-createTopRow();
-addToTable(seattle);
-addToTable(tokyo);
-addToTable(dubai);
-addToTable(paris);
-addToTable(lima);
-createFooter();
+function loopAddToTable(){
+  for (let i = 0; i < locations.length; i++){
+    addToTable(locations[i]);
+  }
+}
+
+function renderEverything() {
+  createTopRow();
+  loopAddToTable();
+  createFooter();
+}
+
+const seattle = new CookieStand ('Seattle', 23, 65, 6.3);
+const tokyo = new CookieStand ('Tokyo', 3, 24, 1.2);
+const dubai = new CookieStand ('Dubai', 11, 38, 3.7);
+const paris = new CookieStand ('Paris', 20, 38, 2.3);
+const lima = new CookieStand ('Lima', 2, 16, 4.6);
+const locations = [seattle, tokyo, dubai, paris, lima];
+
+const formElem = document.getElementById('addLocationForm');
+
+formElem.addEventListener('submit', handleSubmit);
+
+function handleSubmit(event){
+  event.preventDefault();
+  let formCity = event.target.city.value;
+  let minimumCust = event.target.minCust.value;
+  let maximumCust = event.target.maxCust.value;
+  let averageCookiePerCust = event.target.avgCookiePerCust.value;
+  let newStore = new CookieStand(formCity, minimumCust, maximumCust, averageCookiePerCust);
+
+  locations.push(newStore);
+  clearTable();
+  renderEverything();
+  event.target.reset();
+}
+
+function clearTable() {
+  tableElem.innerHTML = '';
+}
+
+renderEverything();
