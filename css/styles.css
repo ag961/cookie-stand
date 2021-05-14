@@ -1,17 +1,52 @@
 body {
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: rgb(216, 194, 174);
+  background-color: rgb(226, 224, 73);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-image: url('../img/ocean.jpg');
+  background-attachment: fixed;
+  background-position: center;
+    
   color: black;
-  width: 90%;
+  
   max-width: 1200px;
-  margin: 0 auto;} 
+  margin: 0 auto;
+  
+} 
+header {
+  position: sticky;
+  background-color: rgba(62, 15, 88, 0.986);
+  display: flex;
+  
+  justify-content: space-evenly;
+  padding: 5px;
+  
+
+}
+
+
+
+img {
+  display: block;
+  width: 80%;
+  border-radius: 10px;
+  
+
+}
 
 header img {
-  display: flex;
-  width: 20%;
-}
   
+  display: block;
+  width: 20%;
+  
+}
+
+section {
+  margin-top: 10px;
+  
+}
+
 h1 {
  color: #880707;
  opacity: 0.85;  
@@ -19,23 +54,61 @@ h1 {
  text-align: center;}
 b { color: red;}
 nav {
- background-color: rgb(197, 179, 179);
- padding: 0.1em;
- margin-bottom: 0.9em;
- border-top: 2px solid #000;
- border-bottom: 2px solid #000;}
+flex-grow: 2;
+display: flex; 
+justify-content: space-around;
+ }
+
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  
+}
+
+article:nth-child(1) {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+section:nth-child(2) {
+  display: flex;
+}
+
 article {
- background-color:rgb(228, 193, 142); 
- padding: 0.5em;
- border: 1px solid #880707}
-div {margin: 10px;}
-ul {
- text-align: center;
- margin: 10px auto 5px auto;}
-li {
- display: inline;
- padding: 1em;
- margin: auto;}
+ background-color:rgb(88, 189, 109); 
+ 
+ padding: 0.7em;
+ margin: 10px;
+ border: 1px solid #080147;
+  border-radius: 20px;
+}
+div {
+  margin: 10px;
+}
+#article1 {
+  display: flex;
+  flex-direction: column;
+
+}
+
+#hours {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#hours p {
+margin-top: 10px;
+}
+
+nav ul li {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  color: white;
+  align-content: center;
+ }
 
 article ul {
   display: flex;
@@ -43,43 +116,57 @@ article ul {
   margin: 10px auto 5px auto;}
 
 article li {
+  color: white;
   padding: 1em;
   margin: auto;}
 a {
- padding:  18px;
- color: black;
- text-decoration: none;}
-a:visited {
- text-decoration: none;}
-img.main {
- width: 600px;
- height: 600px;
- display: block;
- margin: auto;}
-figure {
- width: 620px;
- height: 310px;
- background-color: rgb(172, 147, 119);}
-figure img {
- border: 1px solid;}
+  align-self: flex-end;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 16pt;
+  font-stretch: expanded;
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  
 
-#candle {
- width: 30px;
- height: 80px;}
-#candle2 {
- margin: auto;
 }
+
+article ul {
+  display: flex;
+}
+
+p {
+  color: white;
+  margin-top: 10px;
+}
+
+a:visited {
+ text-decoration: none;
+}
+
+a:hover {
+  color: yellow;
+  font-size: 140%;
+}
+
 h3 {
+  font-size: 1.2em;
  text-transform: uppercase;
  color: blue;
  text-align: center;}
 h2 {
+  font-size: 1.3em;
  text-transform: capitalize;
- color: navy;
+ color: blue;
  text-align: center;}
 
- table * {
-  background-color: honeydew;
+ h4 {
+  font-size: 1.1em;
+  color: red;
+}
+
+table * {
+  
   border: 2px;
   border-style: solid;
   empty-cells: show;
@@ -87,15 +174,26 @@ h2 {
   border: 3px solid black;
   padding: 2px;
   width: auto;
+  
+}
+tbody {
+  background-color: honeydew;
+
 }
 
 thead {
+  background-color: darkorange;
   font-weight: bold;
+  
 }
+
+
+
 
 th {
   font-size: 1.2em;
   font-weight: bolder;
+  
 }
 
 td {
@@ -104,8 +202,13 @@ td {
 }
 
 tfoot {
+  background-color: rgb(183, 199, 223);
   color: blue;
   font-weight: bolder;
+}
+
+.input {
+  color: black;
 }
 
 fieldset {
@@ -125,6 +228,7 @@ input {
 
 legend {
   background-color: #efefef;
+  
   border: 1px solid blue;
   border-radius: 10px;
   padding: 10px 20px;
