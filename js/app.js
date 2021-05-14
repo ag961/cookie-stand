@@ -11,9 +11,9 @@ divElem.appendChild(tableElem);
 function CookieStand (city, minCust, maxCust, avgCookiePerCust) {
 
   this.city = city;
-  this.minCust = parseFloat(minCust);
-  this.maxCust = parseFloat(maxCust);
-  this.avgCookiePerCust = parseFloat(avgCookiePerCust);
+  this.minCust = Number(minCust);
+  this.maxCust = Number(maxCust);
+  this.avgCookiePerCust = Number(avgCookiePerCust);
   this.cookiePerHour = [];
 }
 
