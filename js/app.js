@@ -84,14 +84,13 @@ function createFooter(){
   tfELemFooterRow.appendChild(tfElemFooterHead);
 
   let totalsArray = [];
+
   let sum = 0;
 
   for (let i=0; i < hours.length-1; i++ ){
 
     for ( let j=0; j < locations.length; j++) {
-
       sum += locations[j].cookiePerHour[i];
-
       totalsArray[i] = sum;
     }
 
@@ -102,10 +101,9 @@ function createFooter(){
   }
 
   let totalsSum = 0;
+
   for (let i =0; i < totalsArray.length; i++){
-
     totalsSum += totalsArray[i];
-
   }
 
   let tdFinalTotal = document.createElement('td');
